@@ -85,7 +85,6 @@
                 <property name="can-focus">True</property>
                 <property name="margin-right">10</property>
                 <property name="hexpand">True</property>
-                <property name="input-purpose">password</property>
               </object>
               <packing>
                 <property name="expand">False</property>
