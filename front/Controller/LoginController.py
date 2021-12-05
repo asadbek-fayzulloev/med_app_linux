@@ -1,7 +1,10 @@
 	
 
 import gi
+import os
+import requests
 
+HOME = os.getcwd()
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
@@ -15,7 +18,7 @@ class Handler:
 
 
 builder = Gtk.Builder()
-builder.add_from_file("LoginPage.glade")
+builder.add_from_file(HOME+"/front/LoginPage.glade")
 builder.connect_signals(Handler())
 
 window = builder.get_object("LoginPage")
