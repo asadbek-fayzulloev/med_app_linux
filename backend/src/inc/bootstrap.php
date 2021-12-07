@@ -1,12 +1,12 @@
 <?php
-
-require 'vendor/autoload.php';
-use Dotenv\Dotenv;
-
-$dotenv = new DotEnv(__DIR__);
-$dotenv->load();
-
-// test code, should output:
-// api://default
-// when you run $ php bootstrap.php
-echo getenv('OKTAAUDIENCE');
+define("PROJECT_ROOT_PATH", __DIR__ . "/../");
+ 
+// include main configuration file
+require_once PROJECT_ROOT_PATH . "/inc/config.php";
+ 
+// include the base controller file
+require_once PROJECT_ROOT_PATH . "/Controller/Api/BaseController.php";
+ 
+// include the use model file
+require_once PROJECT_ROOT_PATH . "/Model/UserModel.php";
+?>
