@@ -4,9 +4,9 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 builder = Gtk.Builder()
-builder.add_from_file("/home/jamshid/med_app_linux/front/Controller/LoginPage.glade")
+builder.add_from_file("/home/jamshid/med_app_linux/front/Controller/RegisterPage.glade")
 
-window1 = builder.get_object("LoginPage")
+window1 = builder.get_object("RegisterPage")
 window1.show_all()
 
 class Handler:

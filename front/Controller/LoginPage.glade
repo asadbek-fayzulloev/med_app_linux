@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.38.2 -->
 <interface>
-  <requires lib="gtk+" version="3.0"/>
+  <requires lib="gtk+" version="3.24"/>
   <object class="GtkWindow" id="LoginPage">
     <property name="can-focus">False</property>
     <child>
@@ -115,6 +115,7 @@
                 <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">False</property>
+                <signal name="pressed" handler="onButtonLogin" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -131,6 +132,7 @@
                 <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">False</property>
+                <signal name="pressed" handler="onButtonPressed" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
