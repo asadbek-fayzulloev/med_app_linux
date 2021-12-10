@@ -271,6 +271,22 @@
           </packing>
         </child>
         <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">Profile</property>
+            <property name="width-request">200</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
@@ -572,7 +588,7 @@
                 <property name="valign">end</property>
                 <property name="margin-top">40</property>
                 <property name="margin-bottom">10</property>
-                <signal name="clicked" handler="on_client_table_back_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_doctors_support_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -646,7 +662,6 @@
             <property name="receives-default">True</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
-            <signal name="clicked" handler="on_clients_table_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -663,7 +678,6 @@
             <property name="receives-default">True</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
-            <signal name="clicked" handler="on_doctor_support_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -800,7 +814,7 @@
                 <property name="receives-default">True</property>
                 <property name="halign">end</property>
                 <property name="image-position">right</property>
-                <signal name="clicked" handler="on_doctor_support_back_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_doctors_support_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -831,7 +845,6 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="margin-bottom">10</property>
-                <signal name="clicked" handler="on_doctor_support_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
