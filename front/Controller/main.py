@@ -34,15 +34,21 @@ AppointmentRegister = builder.get_object("AppointmentRegister")
 USERNAME = builder.get_object("entry1")
 PASSWORD = builder.get_object("entry2")
 
+REG_USERNAME = builder.get_object("entry1")
+REG_PASSWORD = builder.get_object("entry2")
+REG_ROLE = builder.get_object("entry2")
+
+user_email = ""
+user_role = ""
+user_id = ""
+HOST = '127.0.0.1'  # The server's hostname or IP address
+PORT = 8888        # The port used by the server
 class Handler:
     def submit_clicked(self, *args):
         
-        HOST = '127.0.0.1'  # The server's hostname or IP address
-        PORT = 8888        # The port used by the server
+      
         result = []
-        r_email = ""
-        r_role = ""
-        r_id = ""
+        
 
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, PORT))
@@ -52,20 +58,21 @@ class Handler:
             if(data.index("[")>0):
                 t = data[data.index("[")+len("["):data.index("]")]
                 result = json.loads(t)
-                print(result)
-                r_id = result["id"]
-                r_role = result["role"]
-                r_email = result["email"]
-                print(r_role)
+                user_id = result["id"]
+                user_role = result["role"]
+                user_email = result["email"]
+                print('Wellcome ',(user_role))
             else:
                 print("WRONG")
             
-        if USERNAME.get_text() == "client" and PASSWORD.get_text() == "1234":
-            Login.hide()
-            ClientMenu.show()
-        if USERNAME.get_text() == "doctor" and PASSWORD.get_text() == "5678":
+        if not user_role:
+            print("Wrong credential")
+        elif user_role=="doctor":
             Login.hide()
             DoctorMenu.show()
+        else:
+            Login.hide()
+            ClientMenu.show()
 
     def on_client_support_clicked(self, *args):
         ClientMenu.hide()
@@ -76,6 +83,20 @@ class Handler:
         ClientMenu.show_all()
     
     def on_appointment_register_clicked(self, *args):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((HOST, PORT))
+            req = 'GET /index.php/user/register?role="'+str(REG_ROLE.get_text())+'"email='+str(REG_USERNAME.get_text())+'&password='+str(REG_PASSWORD.get_text())+' HTTP/1.0\r\n\r\n'
+            s.sendall(bytes(req,'UTF-8'))
+            data = s.recv(1024).decode("utf-8")
+            if(data.index("[")>0):
+                t = data[data.index("[")+len("["):data.index("]")]
+                result = json.loads(t)
+                user_id = result["id"]
+                user_role = result["role"]
+                user_email = result["email"]
+                print('Wellcome ',(user_role))
+            else:
+                print("WRONG")
         ClientMenu.hide()
         AppointmentRegister.show()
 
