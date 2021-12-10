@@ -1,7 +1,11 @@
 import socket
 target_host = "192.168.43.196" 
  
+<<<<<<< HEAD
 target_port = 9998  # create a socket object 
+=======
+target_port = 8888  # create a socket object 
+>>>>>>> 247dfd9c1184a9428a39298166319530a7483b9a
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
  
 # connect the client 
