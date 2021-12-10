@@ -1,4 +1,7 @@
+import array
 import gi, requests, os
+import socket
+import json
 HOME = os.getcwd()
 #path
 GLADE=HOME+"/front/ui/user.glade"
@@ -33,6 +36,30 @@ PASSWORD = builder.get_object("entry2")
 
 class Handler:
     def submit_clicked(self, *args):
+        
+        HOST = '127.0.0.1'  # The server's hostname or IP address
+        PORT = 8888        # The port used by the server
+        result = []
+        r_email = ""
+        r_role = ""
+        r_id = ""
+
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((HOST, PORT))
+            req = 'GET /index.php/user/login?email='+str(USERNAME.get_text())+'&password='+str(PASSWORD.get_text())+' HTTP/1.0\r\n\r\n'
+            s.sendall(bytes(req,'UTF-8'))
+            data = s.recv(1024).decode("utf-8")
+            if(data.index("[")>0):
+                t = data[data.index("[")+len("["):data.index("]")]
+                result = json.loads(t)
+                print(result)
+                r_id = result["id"]
+                r_role = result["role"]
+                r_email = result["email"]
+                print(r_role)
+            else:
+                print("WRONG")
+            
         if USERNAME.get_text() == "client" and PASSWORD.get_text() == "1234":
             Login.hide()
             ClientMenu.show()
