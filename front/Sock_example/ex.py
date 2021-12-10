@@ -1,5 +1,5 @@
 import socket
-target_host = "31.31.198.230" 
+target_host = "192.168.43.196" 
  
 target_port = 9998  # create a socket object 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
