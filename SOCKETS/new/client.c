@@ -79,7 +79,7 @@ int main(int argc, char **argv){
 		return EXIT_FAILURE;
 	}
 
-	char *ip = "127.0.0.1";
+	char *ip = "192.168.43.196";
 	int port = atoi(argv[1]);
 	printf("Port %i\n", port);
 	signal(SIGINT, catch_ctrl_c_and_exit);

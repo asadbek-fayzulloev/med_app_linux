@@ -124,7 +124,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="regButton">
                 <property name="label" translatable="yes">Register</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
@@ -132,7 +132,7 @@
                 <property name="halign">center</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">False</property>
-                <signal name="pressed" handler="onButtonPressed" swapped="no"/>
+                <signal name="pressed" handler="onButtonRegister" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

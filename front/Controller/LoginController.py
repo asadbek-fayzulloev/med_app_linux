@@ -12,23 +12,23 @@ window1 = builder.get_object("LoginPage")
 window1.show_all()
 
 class Handler:
-    def onDestroy(self, *args):
-        Gtk.main_quit()
-
-    def onButtonPressed(self, button):
-        builder = Gtk.Builder()
-        builder.add_from_file(HOME+"/front/LoginPage.glade")
-        # builder.add_from_file("/home/jamshid/med_app_linux/front/Controller/RegisterPage.glade")
-        window = builder.get_object("RegisterPage")
-        window1.hide()
-        window.show_all()
     def onButtonLogin(self, button):
         inputEmail = builder.get_object("email")
         
         payload = {"email": inputEmail}
         r = requests.get("https://httpbin.org/get", params=payload)
         print(r.status_code)
+    def onButtonRegister(self, button):
+        builder = Gtk.Builder()
+        builder.add_from_file(HOME+"/front/Controller/RegisterPage.glade")
 
+        window = builder.get_object("RegisterPage")
+        #window1.hide()
+        # window.show_all()
+        window1.hide()
+        builder.show_frame(window)
+    def onDestroy(self, *args):
+        Gtk.main_quit()
 
         
 
