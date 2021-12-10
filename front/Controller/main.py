@@ -53,27 +53,43 @@ class Handler:
         AppointmentRegister.show()
 
     def on_appointment_back_clicked(self, *args):
-        ClientMenu.hide()
-        Login.show_all()
+        AppointmentRegister.hide()
+        ClientMenu.show()
+
+    def on_clients_table_clicked(self, *args):
+        DoctorMenu.hide()
+        ClientsTable.show()
 
     def on_doctors_table_clicked(self, *args):
         ClientMenu.hide()
         DoctorsTable.show()
 
+    def on_doctors_table_back_clicked(self, *args):
+        DoctorsTable.hide()
+        ClientMenu.show()
+
     def on_client_table_clicked(self, *args):
         ClientMenu.hide()
         ClientsTable.show()
 
+    def on_client_table_back_clicked(self, *args):
+        ClientsTable.hide()
+        DoctorMenu.show()
+
     def on_doctor_support_clicked(self, *args):
-        ClientMenu.hide()
+        DoctorMenu.hide()
         DoctorSupport.show()
 
-    def on_doctors_support_back_clicked(self, *args):
+    def on_doctor_support_back_clicked(self, *args):
         DoctorSupport.hide()
         DoctorMenu.show_all()
 
     def on_client_menu_back_clicked(self, *args):
         ClientMenu.hide()
+        Login.show_all()
+
+    def on_doctor_menu_back_clicked(self, *args):
+        DoctorMenu.hide()
         Login.show_all()
 
     def onDestroy(self, *args):
