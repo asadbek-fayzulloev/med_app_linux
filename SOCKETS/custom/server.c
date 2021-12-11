@@ -14,11 +14,11 @@ void error(const char *msg) { perror(msg); exit(0); }
 int main(int argc , char *argv[])
 {
 	
-	if (argc!=2){
-		puts("Enter port number");
-		exit(0);
-	}
-	int port_number = argv[0];
+	// if (argc!=2){
+	// 	puts("Enter port number");
+	// 	exit(0);
+	// }
+	// int port_number = strtol(argv[0]);
 	int socket_desc , client_sock , c , *new_sock;
 	struct sockaddr_in server , client;
 	
@@ -33,7 +33,7 @@ int main(int argc , char *argv[])
 	//Prepare the sockaddr_in structure
 	server.sin_family = AF_INET;
 	server.sin_addr.s_addr = INADDR_ANY;
-	server.sin_port = htons( port_number );
+	server.sin_port = htons( 8888 );
 	
 	//Bind
 	if( bind(socket_desc,(struct sockaddr *)&server , sizeof(server)) < 0)
