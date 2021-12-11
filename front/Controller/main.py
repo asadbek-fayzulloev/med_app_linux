@@ -28,7 +28,9 @@ DoctorMenu = builder.get_object("DoctorMenu")
 DoctorSupport = builder.get_object("DoctorSupport")
 
 DoctorsTable = builder.get_object("DoctorsTable")
+Cell = builder.get_object("DoctorList")
 
+# DoctorsTable.show()
 AppointmentRegister = builder.get_object("AppointmentRegister")
 
 RegisterPage = builder.get_object("RegisterPage")
@@ -49,15 +51,11 @@ REASON = builder.get_object("reason")
 user_email = ""
 user_role = ""
 user_id = ""
-HOST = '192.168.0.102'  # The server's hostname or IP address
+HOST = '192.168.43.196'  # The server's hostname or IP address
 PORT = 8888        # The port used by the server
 class Handler:
     def submit_clicked(self, *args):
-        
-      
         result = []
-        
-
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, PORT))
             req = 'GET /index.php/user/login?email='+str(USERNAME.get_text())+'&password='+str(PASSWORD.get_text())+' HTTP/1.0\r\n\r\n'
@@ -91,22 +89,26 @@ class Handler:
         ClientMenu.show_all()
     
     def on_appointment_register_clicked(self, *args):
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.connect((HOST, PORT))
-            req = 'GET /index.php/user/register?role="'+str(REG_ROLE.get_text())+'"email='+str(REG_USERNAME.get_text())+'&password='+str(REG_PASSWORD.get_text())+' HTTP/1.0\r\n\r\n'
-            s.sendall(bytes(req,'UTF-8'))
-            data = s.recv(1024).decode("utf-8")
-            if(data.index("[")>0):
-                t = data[data.index("[")+len("["):data.index("]")]
-                result = json.loads(t)
-                user_id = result["id"]
-                user_role = result["role"]
-                user_email = result["email"]
-                print('Wellcome ',(user_role))
-            else:
-                print("WRONG")
+        
         ClientMenu.hide()
         AppointmentRegister.show()
+    def on_register_action_clicked(self, *args):
+        print("fdsgdsf")
+        if(str(REG_PASSWORD.get_text())==str(REG_PASSWORD_CHECK.get_text())):
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.connect((HOST, PORT))
+                req = 'GET /index.php/user/register?role='+str(REG_ROLE.get_text())+'&email='+str(REG_EMAIL.get_text())+'&password='+str(REG_PASSWORD.get_text())+' HTTP/1.0\r\n\r\n'
+                s.sendall(bytes(req,'UTF-8'))
+                data = s.recv(1024).decode("utf-8")
+                print(data)
+                
+        Login.hide()
+        RegisterPage.show()
+
+    def on_register_page_back_clicked(self, *args):
+        RegisterPage.hide()
+        Login.show_all()
+
 
     def on_register_page_clicked(self, *args):
         Login.hide()

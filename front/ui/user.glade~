@@ -572,7 +572,7 @@
                 <property name="valign">end</property>
                 <property name="margin-top">40</property>
                 <property name="margin-bottom">10</property>
-                <signal name="clicked" handler="on_doctors_support_back_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_clients_table_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -646,6 +646,7 @@
             <property name="receives-default">True</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
+            <signal name="clicked" handler="on_clients_table_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -662,6 +663,7 @@
             <property name="receives-default">True</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
+            <signal name="clicked" handler="on_doctor_support_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -685,7 +687,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="margin-bottom">10</property>
-                <signal name="clicked" handler="onDestroy" swapped="no"/>
+                <signal name="clicked" handler="on_doctor_menu_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -798,7 +800,6 @@
                 <property name="receives-default">True</property>
                 <property name="halign">end</property>
                 <property name="image-position">right</property>
-                <signal name="clicked" handler="on_doctors_support_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -829,6 +830,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="margin-bottom">10</property>
+                <signal name="clicked" handler="on_doctor_support_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -892,163 +894,29 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox">
+          <object class="GtkScrolledWindow">
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="halign">center</property>
-            <property name="spacing">20</property>
+            <property name="can-focus">True</property>
+            <property name="shadow-type">in</property>
             <child>
-              <object class="GtkBox">
+              <object class="GtkViewport">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">ID</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry">
+                  <object class="GtkTreeView">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="editable">False</property>
-                    <property name="input-purpose">number</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection"/>
+                    </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Firstname</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry">
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="editable">False</property>
-                    <property name="input-purpose">name</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Lastname</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry">
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="editable">False</property>
-                    <property name="input-purpose">name</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Specialization</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry">
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="editable">False</property>
-                    <property name="input-purpose">email</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">3</property>
-              </packing>
             </child>
           </object>
           <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -1068,7 +936,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="margin-bottom">10</property>
-                <signal name="clicked" handler="onDestroy" swapped="no"/>
+                <signal name="clicked" handler="on_doctors_table_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1098,7 +966,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </object>
@@ -1295,6 +1163,7 @@
                 <property name="receives-default">True</property>
                 <property name="halign">start</property>
                 <property name="valign">end</property>
+                <signal name="clicked" handler="on_register_page_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1325,6 +1194,7 @@
                 <property name="receives-default">True</property>
                 <property name="halign">start</property>
                 <property name="valign">end</property>
+                <signal name="clicked" handler="onDestroy" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1383,7 +1253,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="margin-right">37</property>
-                <property name="label" translatable="yes">Email:</property>
+                <property name="label" translatable="yes">Role:</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1397,7 +1267,7 @@
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
                 <property name="margin-top">10</property>
-                <property name="placeholder-text" translatable="yes">Email</property>
+                <property name="placeholder-text" translatable="yes">Role</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1493,6 +1363,7 @@
                 <property name="receives-default">True</property>
                 <property name="halign">end</property>
                 <property name="margin-top">15</property>
+                <signal name="pressed" handler="on_register_page_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
