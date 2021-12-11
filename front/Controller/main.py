@@ -15,7 +15,7 @@ builder = Gtk.Builder()
 builder.add_from_file(GLADE)
 
 Login = builder.get_object("login")
-Login.show_all()
+# Login.show_all()
 
 ClientMenu = builder.get_object("ClientMenu")
 
@@ -35,6 +35,8 @@ AppointmentRegister = builder.get_object("AppointmentRegister")
 
 RegisterPage = builder.get_object("RegisterPage")
 
+WelcomePage = builder.get_object("welcome")
+WelcomePage.show_all()
 USERNAME = builder.get_object("entry1")
 PASSWORD = builder.get_object("entry2")
 
@@ -44,19 +46,26 @@ REG_ROLE = builder.get_object("reg_role")
 REG_PASSWORD = builder.get_object("reg_pass")
 REG_PASSWORD_CHECK = builder.get_object("reg_check")
 
-DOC_TYPE = builder.get_object("role")
-DATE = builder.get_object("date")
-REASON = builder.get_object("reason")
+APP_DOCTORID=builder.get_object("doctorid")
+APP_DATE=builder.get_object("AppointmentDate")
+APP_DESC=builder.get_object("AppointmentDesc")
 
+HOST='127.0.0.1'
+PORT=8888
 user_email = ""
 user_role = ""
 user_id = ""
-HOST = '192.168.43.196'  # The server's hostname or IP address
-PORT = 8888        # The port used by the server
+
 class Handler:
     def submit_clicked(self, *args):
+        global user_id
+        global user_role
+        global user_email
+
         result = []
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            print(HOST)
+            print(PORT)
             s.connect((HOST, PORT))
             req = 'GET /index.php/user/login?email='+str(USERNAME.get_text())+'&password='+str(PASSWORD.get_text())+' HTTP/1.0\r\n\r\n'
             s.sendall(bytes(req,'UTF-8'))
@@ -80,6 +89,16 @@ class Handler:
             Login.hide()
             ClientMenu.show()
 
+    def on_welcome_page_enter_clicked(self, *args):
+        global HOST
+        global PORT
+        HOST=str(builder.get_object("entry3").get_text())
+        PORT=int(str(builder.get_object("entry4").get_text()))
+        
+        WelcomePage.hide()
+        Login.show_all()
+        
+
     def on_client_support_clicked(self, *args):
         ClientMenu.hide()
         ClientSupport.show()
@@ -88,12 +107,20 @@ class Handler:
         ClientSupport.hide()
         ClientMenu.show_all()
     
+    def on_appointment_register_action_clicked(self, *args):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.connect((HOST, PORT))
+                req = 'GET /index.php/user/docreg?doctor_id='+str(APP_DOCTORID.get_text())+'&date='+str(APP_DATE.get_text())+'&description='+str(APP_DESC.get_text())+'&user_id='+str(user_id)+' HTTP/1.0\r\n\r\n'
+                s.sendall(bytes(req,'UTF-8'))
+                data = s.recv(1024).decode("utf-8")
+                print(data)
+        ClientMenu.show()
+        AppointmentRegister.hide()
     def on_appointment_register_clicked(self, *args):
         
         ClientMenu.hide()
         AppointmentRegister.show()
     def on_register_action_clicked(self, *args):
-        print("fdsgdsf")
         if(str(REG_PASSWORD.get_text())==str(REG_PASSWORD_CHECK.get_text())):
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 s.connect((HOST, PORT))
@@ -102,8 +129,8 @@ class Handler:
                 data = s.recv(1024).decode("utf-8")
                 print(data)
                 
-        Login.hide()
-        RegisterPage.show()
+        Login.show()
+        RegisterPage.hide()
 
     def on_register_page_back_clicked(self, *args):
         RegisterPage.hide()
