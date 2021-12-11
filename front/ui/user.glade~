@@ -517,7 +517,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="ignore_button">
                     <property name="label" translatable="yes">Ignore</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
@@ -530,7 +530,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="receive_button">
                     <property name="label" translatable="yes">Receive</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
