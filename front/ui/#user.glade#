@@ -1375,12 +1375,15 @@
         </child>
         <child>
           <object class="GtkBox">
+            <property name="width-request">150</property>
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="halign">center</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="halign">start</property>
                 <property name="margin-right">37</property>
                 <property name="label" translatable="yes">Email:</property>
               </object>
@@ -1395,6 +1398,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="halign">end</property>
                 <property name="margin-top">10</property>
                 <property name="placeholder-text" translatable="yes">Email</property>
               </object>

@@ -42,6 +42,10 @@ REG_ROLE = builder.get_object("reg_role")
 REG_PASSWORD = builder.get_object("reg_pass")
 REG_PASSWORD_CHECK = builder.get_object("reg_check")
 
+DOC_TYPE = builder.get_object("role")
+DATE = builder.get_object("date")
+REASON = builder.get_object("reason")
+
 user_email = ""
 user_role = ""
 user_id = ""

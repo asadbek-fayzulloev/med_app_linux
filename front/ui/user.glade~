@@ -516,7 +516,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="ignore_button">
                     <property name="label" translatable="yes">Ignore</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
@@ -529,7 +529,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="receive_button">
                     <property name="label" translatable="yes">Receive</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
@@ -1153,7 +1153,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry3">
+              <object class="GtkEntry" id="reg_email">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -1190,7 +1190,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry6">
+              <object class="GtkEntry" id="reg_role">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -1227,7 +1227,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry4">
+              <object class="GtkEntry" id="reg_pass">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="visibility">False</property>
@@ -1263,7 +1263,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry5">
+              <object class="GtkEntry" id="reg_check">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="visibility">False</property>
