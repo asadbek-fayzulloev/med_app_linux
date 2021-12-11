@@ -28,7 +28,9 @@ DoctorMenu = builder.get_object("DoctorMenu")
 DoctorSupport = builder.get_object("DoctorSupport")
 
 DoctorsTable = builder.get_object("DoctorsTable")
+Cell = builder.get_object("DoctorList")
 
+DoctorsTable.show()
 AppointmentRegister = builder.get_object("AppointmentRegister")
 
 RegisterPage = builder.get_object("RegisterPage")
