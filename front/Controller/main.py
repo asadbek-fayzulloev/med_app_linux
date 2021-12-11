@@ -31,6 +31,8 @@ DoctorsTable = builder.get_object("DoctorsTable")
 
 AppointmentRegister = builder.get_object("AppointmentRegister")
 
+RegisterPage = builder.get_object("RegisterPage")
+
 USERNAME = builder.get_object("entry1")
 PASSWORD = builder.get_object("entry2")
 
@@ -41,7 +43,7 @@ REG_ROLE = builder.get_object("entry2")
 user_email = ""
 user_role = ""
 user_id = ""
-HOST = '127.0.0.1'  # The server's hostname or IP address
+HOST = '192.168.0.102'  # The server's hostname or IP address
 PORT = 8888        # The port used by the server
 class Handler:
     def submit_clicked(self, *args):
@@ -100,6 +102,14 @@ class Handler:
         ClientMenu.hide()
         AppointmentRegister.show()
 
+    def on_register_page_clicked(self, *args):
+        Login.hide()
+        RegisterPage.show()
+
+    def on_register_page_back_clicked(self, *args):
+        RegisterPage.hide()
+        Login.show_all()
+
     def on_appointment_back_clicked(self, *args):
         AppointmentRegister.hide()
         ClientMenu.show()
@@ -116,11 +126,11 @@ class Handler:
         DoctorsTable.hide()
         ClientMenu.show()
 
-    def on_client_table_clicked(self, *args):
-        ClientMenu.hide()
+    def on_clients_table_clicked(self, *args):
+        DoctorMenu.hide()
         ClientsTable.show()
 
-    def on_client_table_back_clicked(self, *args):
+    def on_clients_table_back_clicked(self, *args):
         ClientsTable.hide()
         DoctorMenu.show()
 

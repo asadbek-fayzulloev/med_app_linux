@@ -111,7 +111,7 @@ void *connection_handler(void *socket_desc)
 		// write(sock , client_message , strlen(client_message));
 		//begin
 		int portno =        80;
-		char *host =        "127.0.0.1";
+		char *host =        "192.168.0.102";
 		struct hostent *server;
 		struct sockaddr_in serv_addr;
 		int sockfd, bytes, sent, received, total;
