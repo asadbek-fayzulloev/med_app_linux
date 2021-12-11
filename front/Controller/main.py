@@ -45,11 +45,7 @@ HOST = '127.0.0.1'  # The server's hostname or IP address
 PORT = 8888        # The port used by the server
 class Handler:
     def submit_clicked(self, *args):
-        
-      
         result = []
-        
-
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, PORT))
             req = 'GET /index.php/user/login?email='+str(USERNAME.get_text())+'&password='+str(PASSWORD.get_text())+' HTTP/1.0\r\n\r\n'
