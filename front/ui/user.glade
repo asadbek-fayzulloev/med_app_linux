@@ -572,7 +572,7 @@
                 <property name="valign">end</property>
                 <property name="margin-top">40</property>
                 <property name="margin-bottom">10</property>
-                <signal name="clicked" handler="on_clients_table_back_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_doctors_support_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -646,7 +646,6 @@
             <property name="receives-default">True</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
-            <signal name="clicked" handler="on_clients_table_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -663,7 +662,6 @@
             <property name="receives-default">True</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
-            <signal name="clicked" handler="on_doctor_support_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -687,7 +685,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="margin-bottom">10</property>
-                <signal name="clicked" handler="on_doctor_menu_back_clicked" swapped="no"/>
+                <signal name="clicked" handler="onDestroy" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -800,6 +798,7 @@
                 <property name="receives-default">True</property>
                 <property name="halign">end</property>
                 <property name="image-position">right</property>
+                <signal name="clicked" handler="on_doctors_support_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -830,7 +829,6 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="margin-bottom">10</property>
-                <signal name="clicked" handler="on_doctor_support_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1070,7 +1068,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="margin-bottom">10</property>
-                <signal name="clicked" handler="on_doctors_table_back_clicked" swapped="no"/>
+                <signal name="clicked" handler="onDestroy" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1155,7 +1153,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry3">
+              <object class="GtkEntry" id="reg_email">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -1183,7 +1181,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Password:</property>
+                <property name="label" translatable="yes">Role:</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1192,11 +1190,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry4">
+              <object class="GtkEntry" id="reg_role">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="visibility">False</property>
-                <property name="placeholder-text" translatable="yes">Password</property>
+                <property name="receives-default">True</property>
+                <property name="margin-top">10</property>
+                <property name="placeholder-text" translatable="yes">Role</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1228,7 +1227,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry5">
+              <object class="GtkEntry" id="reg_pass">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="visibility">False</property>
@@ -1251,6 +1250,42 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Password:</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="reg_check">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="visibility">False</property>
+                <property name="placeholder-text" translatable="yes">Password</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
             <property name="halign">center</property>
             <child>
               <object class="GtkButton">
@@ -1260,7 +1295,6 @@
                 <property name="receives-default">True</property>
                 <property name="halign">start</property>
                 <property name="valign">end</property>
-                <signal name="clicked" handler="on_register_page_back_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1291,7 +1325,6 @@
                 <property name="receives-default">True</property>
                 <property name="halign">start</property>
                 <property name="valign">end</property>
-                <signal name="clicked" handler="onDestroy" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1303,7 +1336,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">4</property>
+            <property name="position">5</property>
           </packing>
         </child>
       </object>
@@ -1460,7 +1493,6 @@
                 <property name="receives-default">True</property>
                 <property name="halign">end</property>
                 <property name="margin-top">15</property>
-                <signal name="pressed" handler="on_register_page_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

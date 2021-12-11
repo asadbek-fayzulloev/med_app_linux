@@ -36,9 +36,11 @@ RegisterPage = builder.get_object("RegisterPage")
 USERNAME = builder.get_object("entry1")
 PASSWORD = builder.get_object("entry2")
 
-REG_USERNAME = builder.get_object("entry1")
-REG_PASSWORD = builder.get_object("entry2")
-REG_ROLE = builder.get_object("entry2")
+REG_EMAIL = builder.get_object("reg_email")
+REG_ROLE = builder.get_object("reg_role")
+#REG_USERNAME = builder.get_object("reg_role")
+REG_PASSWORD = builder.get_object("reg_pass")
+REG_PASSWORD_CHECK = builder.get_object("reg_check")
 
 user_email = ""
 user_role = ""
